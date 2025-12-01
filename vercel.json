@@ -1,5 +1,26 @@
 {
-    "buildCommand":"npm run build",
-    "buildServer":"npm run start",
-    "outputDirectory":"admin/dist"
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/src/server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "admin/dist",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/backend/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/admin/$1"
+    }
+  ]
 }
