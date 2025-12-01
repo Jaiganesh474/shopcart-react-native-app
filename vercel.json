@@ -1,12 +1,4 @@
 {
-    "builds": [
-        {
-            "buildCommand": "npm run build",
-            "outputDirectory": "admin/dist"
-        },
-        {
-            "buildCommand":"npm run start",
-            "outputDirectory":"backend/src/server.js"
-        }
-    ]
+    "buildCommand":"npm run build",
+    "outputDirectory":"admin/dist"
 }
