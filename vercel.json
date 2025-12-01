@@ -1,26 +1,12 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "backend/src/server.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "admin/dist",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/backend/server.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/admin/$1"
-    }
-  ]
+    "builds": [
+        {
+            "buildCommand": "npm run build",
+            "outputDirectory": "admin/dist"
+        },
+        {
+            "buildCommand":"npm run start",
+            "outputDirectory":"backend/src/server.js"
+        }
+    ]
 }
